@@ -1,5 +1,5 @@
 {
-  "name": "pdfjs",
+  "name": "@davidyaha/pdfjs",
   "author": "Markus Ast <npm.m@rkusa.st>",
   "version": "2.0.0-alpha.6",
   "description": "A Portable Document Format (PDF) generation library targeting both the server- and client-side.",
@@ -10,9 +10,11 @@
   "license": "MIT",
   "homepage": "https://github.com/rkusa/pdfjs",
   "bugs": "https://github.com/rkusa/pdfjs/issues",
-  "main": "lib/",
+  "main": "lib-node6",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "node test/index.js",
+    "prepublishOnly": "npm run build",
+    "build": "babel lib --out-dir lib-node6"
   },
   "dependencies": {
     "@rkusa/linebreak": "^1.0.0",
@@ -22,13 +24,13 @@
     "uuid": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
     "tape": "^4.6.3"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/rkusa/pdfjs.git"
-  },
-  "engines": {
-    "node": ">=7"
   }
 }
